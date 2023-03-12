@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"fmt"
-	"github.com/c0depwn/fhnw-vesys-bank-server/internal/api"
+	"github.com/c0depwn/fhnw-vesys-bank-server/internal/message_api"
 )
 
 type SpecificMessageHandler func(v interface{}) interface{}
@@ -38,7 +38,7 @@ func (h MessageHandlerAdapter) RegisterMessageHandler(t Type, f SpecificMessageH
 //	}
 //}
 
-func (h MessageHandlerAdapter) Handle(codec api.Codec, data []byte) ([]byte, error) {
+func (h MessageHandlerAdapter) Handle(codec message_api.Codec, data []byte) ([]byte, error) {
 	var rpcMsg Message
 	if err := codec.Decode(data, &rpcMsg); err != nil {
 		return nil, err

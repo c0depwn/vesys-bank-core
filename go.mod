@@ -6,3 +6,5 @@ require (
 	github.com/google/uuid v1.3.0
 	golang.org/x/exp v0.0.0-20230303215020-44a13b063f3e
 )
+
+require github.com/gorilla/mux v1.8.0

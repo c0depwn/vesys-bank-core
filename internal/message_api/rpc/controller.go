@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"errors"
-	"github.com/c0depwn/fhnw-vesys-bank-server/internal/api/model"
+	"github.com/c0depwn/fhnw-vesys-bank-server/internal/message_api/model"
 	"github.com/c0depwn/fhnw-vesys-bank-server/internal/usecase"
 )
 

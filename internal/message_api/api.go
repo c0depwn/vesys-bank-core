@@ -1,6 +1,7 @@
-package api
+package message_api
 
 import (
+	"fmt"
 	"github.com/google/uuid"
 	"io"
 	"log"
@@ -52,7 +53,15 @@ func NewMessageBasedAPI(
 	}
 }
 
-func (api *MessageBased) Listen(listener net.Listener) {
+func (api *MessageBased) Listen(addr string) {
+	listener, err := net.Listen("tcp4", addr)
+	if err != nil {
+		panic(fmt.Sprintf("failed to start server: %v", err))
+	}
+	defer listener.Close()
+
+	log.Printf("[INFO] server is listening on %v", listener.Addr())
+
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
